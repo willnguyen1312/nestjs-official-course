@@ -1,5 +1,4 @@
 import { IsString } from 'class-validator';
-import { Flavor } from '../entities/flavor.entity';
 
 export class CreateCoffeeDto {
   @IsString()
@@ -9,5 +8,5 @@ export class CreateCoffeeDto {
   readonly brand: string;
 
   @IsString({ each: true })
-  readonly flavors: Flavor[];
+  readonly flavors: string[];
 }
