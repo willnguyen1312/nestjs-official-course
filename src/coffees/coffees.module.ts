@@ -1,4 +1,5 @@
 import { Injectable, Module } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Event } from 'src/events/entities/event.entity';
 import { COFFEE_BRANDS } from './coffees.constants';
@@ -19,6 +20,7 @@ export class CoffeeBrandsDactory {
   controllers: [CoffeesController],
   providers: [
     CoffeesService,
+    ConfigService,
     CoffeeBrandsDactory,
     {
       provide: COFFEE_BRANDS,
