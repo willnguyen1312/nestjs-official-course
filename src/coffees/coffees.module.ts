@@ -9,7 +9,7 @@ import { Flavor } from './entities/flavor.entity';
 
 @Injectable()
 export class CoffeeBrandsDactory {
-  create() {
+  async create() {
     return ['buddy brew', 'nestcafe'];
   }
 }
@@ -22,7 +22,10 @@ export class CoffeeBrandsDactory {
     CoffeeBrandsDactory,
     {
       provide: COFFEE_BRANDS,
-      useFactory: (brandFactory: CoffeeBrandsDactory) => brandFactory.create(),
+      useFactory: async (brandFactory: CoffeeBrandsDactory) => {
+        console.log(123);
+        return brandFactory.create();
+      },
       inject: [CoffeeBrandsDactory],
     },
   ],
