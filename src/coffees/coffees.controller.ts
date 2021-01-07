@@ -28,7 +28,7 @@ export class CoffeesController {
   ) {
     console.log(protocol);
 
-    await new Promise((res) => setTimeout(res, 5000));
+    // await new Promise((res) => setTimeout(res, 5000));
     return this.coffeesService.findAll(paginationQuery);
   }
 
