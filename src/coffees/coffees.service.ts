@@ -10,7 +10,7 @@ import { UpdateCoffeeDto } from './dto/update-coffee.dto';
 import { Coffee } from './entities/coffee.entity';
 import { Flavor } from './entities/flavor.entity';
 
-@Injectable({ scope: Scope.REQUEST })
+@Injectable({ scope: Scope.DEFAULT })
 export class CoffeesService {
   constructor(
     @InjectRepository(Coffee)
@@ -21,7 +21,7 @@ export class CoffeesService {
     private readonly configService: ConfigService,
     @Inject(COFFEE_BRANDS) coffeeBrands: string[],
   ) {
-    const databaseHost = this.configService.get<string>('DATABASE_HOST');
+    const databaseHost = this.configService.get<string>('database.host');
     console.log(databaseHost);
     console.log(coffeeBrands);
   }
